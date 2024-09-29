@@ -4,3 +4,4 @@ venv/
 # Ignore text material
 texts/
 output_txts/
+source_epub/
