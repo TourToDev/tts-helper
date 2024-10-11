@@ -18,7 +18,10 @@ async def text_to_speech(file_path):
         text = file.read()
 
     # Define the language and voice for the speech
-    voice = "en-US-AvaNeural"  # Example voice
+    en_uk_voice = "en-GB-RyanNeural"
+    us_ava_voice = "en-US-AvaNeural"
+    us_male_voice = "en-US-RogerNeural"
+    voice = en_uk_voice
 
     # Construct the MP3 file path to save in the same folder as the TXT file
     mp3_file = os.path.join(os.path.dirname(file_path), f"{file_name}.mp3")
@@ -29,7 +32,7 @@ async def text_to_speech(file_path):
         return  # Skip this file
 
     # Convert the text to speech and save it as an MP3 file
-    communicate = edge_tts.Communicate(text, voice)
+    communicate = edge_tts.Communicate(text, voice, rate="+5%")
     await communicate.save(mp3_file)
 
     print(f"Saved speech as: {mp3_file}")
