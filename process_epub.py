@@ -15,7 +15,7 @@ def epub_to_txt_chunks(epub_file, output_folder):
         text = soup.get_text().strip()
 
         if text:
-            title = text[:20]  # Take the first 15 characters of the content
+            title = text[:25]  # Take the first 15 characters of the content
             title = re.sub(r'[<>:"/\\|?*]', '', title).strip()  # Remove invalid characters
             title = title.replace('\n', '_').replace('\r', '_')
             output_file = os.path.join(output_folder, f'{chapter_count}_{title}.txt')
